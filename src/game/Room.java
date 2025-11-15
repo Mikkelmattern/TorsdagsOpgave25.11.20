@@ -33,35 +33,40 @@ public class Room {
     }
 
     public Room getNorthRoom() {
-        return null; //TODO
+        return northRoom;
     }
 
     public void setNorthRoom(Room northRoom) {
-       //TODO
+        this.northRoom = northRoom;
+        northRoom.southRoom = this;
     }
 
     public Room getEastRoom() {
-        return null; //TODO
+        return eastRoom;
     }
 
     public void setEastRoom(Room eastRoom) {
-        //TODO
+        this.eastRoom = eastRoom;
+        eastRoom.westRoom = this;
     }
 
     public Room getSouthRoom() {
-        return null; //TODO
+        return southRoom;
     }
 
     public void setSouthRoom(Room southRoom) {
-       //TODO
+        this.southRoom = southRoom;
+        southRoom.northRoom = this;
+
     }
 
     public Room getWestRoom() {
-        return null; //TODO
+        return westRoom;
     }
 
     public void setWestRoom(Room westRoom) {
-        //TODO
+        this.westRoom = westRoom;
+        westRoom.eastRoom = this;
     }
 
     public String getName() {
@@ -75,7 +80,7 @@ public class Room {
     public Item removeItem(String itemName) {
         Item itemToBeRemoved = findItem(itemName);
         if (itemToBeRemoved != null) {
-            //TODO
+            items.remove(itemToBeRemoved);
         }
         return itemToBeRemoved;
     }
@@ -83,7 +88,7 @@ public class Room {
     public Item findItem(String itemName) {
         for (Item item : items) {
             if (item.getName().equalsIgnoreCase(itemName)) {
-                //TODO
+                return item;
             }
         }
         return null;

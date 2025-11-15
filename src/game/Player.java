@@ -28,18 +28,18 @@ public class Player {
                 requestedRoom = currentRoom.getNorthRoom();
                 break;
             case SOUTH:
-                //TODO
+                requestedRoom = currentRoom.getSouthRoom();
                 break;
             case EAST:
-                //TODO
+                requestedRoom = currentRoom.getEastRoom();
                 break;
             case WEST:
-                //TODO
+                requestedRoom = currentRoom.getWestRoom();
                 break;
+        } if (requestedRoom != null) {
+            currentRoom = requestedRoom;
+            return true;
         }
-
-        // TODO if (requestedRoom != null) make currentRoom the requestedRoom;
-        // TODO return whether move was possible
         return false;
     }
 
@@ -50,7 +50,7 @@ public class Player {
     public boolean takeItem(String itemName) {
         Item pickupFromRoom = currentRoom.removeItem(itemName);
         if (pickupFromRoom != null) {
-            //TODO
+            inventory.add(pickupFromRoom);
             return true;
         }
         return false;
